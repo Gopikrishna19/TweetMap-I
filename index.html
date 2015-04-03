@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title></title>
+        <script src="js/d3.js" charset="utf-8"></script>
+        <script src="js/jq.js" charset="utf-8"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?libraries=visualization"></script>
+
+        <link href="css/bs.css" rel="stylesheet" type="text/css">
+        <link href="css/bs-theme.css" rel="stylesheet" type="text/css">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand">TweetMap</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#canvas">Heatchart</a></li>
+                            <li><a href="#map">Maps</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="row">
+                <div id="canvas" class="col-md-10 col-md-offset-1"></div>
+            </div>
+            <div class="row">
+                <div id="map" class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div id="googleMap"></div>
+                        </div>
+                        <div class="col-md-5">
+                            <div id="heatMap"></div>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" id="filter" placeholder="Filter">
+                            <select id="keywords" size="2"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/populate.js"></script>
+        <script src="js/map.js"></script>
+        <script>
+            $(function () {
+                $(".nav.navbar-nav li").click(function () {
+                    $(".nav.navbar-nav li").removeClass("active")
+                    $(this).addClass("active");
+                });
+
+                $("#filter").keyup(function () {
+                    var filter = new RegExp("^" + $(this).val());
+                    $("#keywords option").addClass("hide");
+                    $("#keywords option").each(function () {
+                        if (filter.test($(this).html())) {
+                            $(this).removeClass("hide");
+                        }
+                    })
+                })
+
+                $("#keywords").change(function () {
+                    updateMap($(this).val());
+                });
+            });
+        </script>
+    </body>
+</html>

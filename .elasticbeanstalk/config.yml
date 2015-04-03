@@ -1,0 +1,10 @@
+branch-defaults:
+  default:
+    environment: tweetmap-env
+global:
+  application_name: TweetMap
+  default_ec2_keyname: GopiAWS
+  default_platform: 64bit Amazon Linux 2014.09 v1.2.0 running PHP 5.5
+  default_region: us-west-2
+  profile: null
+  sc: null
