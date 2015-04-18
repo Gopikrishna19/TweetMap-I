@@ -70,11 +70,11 @@
     }
     
     // Define the consumer and OAuth Keys
-    define("TWITTER_CONSUMER_KEY", "b0w50Tgn01ViFWE9ID7FLB4Sl");
-    define("TWITTER_CONSUMER_SECRET", "tRzN5tcSCTo2WHfeBpoD8Xflkji4CMsMw2OF6ceSCByRHmsYM8");
+    define("TWITTER_CONSUMER_KEY", "");
+    define("TWITTER_CONSUMER_SECRET", "");
     
-    define("OAUTH_TOKEN", "173047050-o1Q4wSy123ZvYoL6IwNB6pWKLymB5cWjGETkX8Fx");
-    define("OAUTH_SECRET", "661jD0UmDxsYrcxYHqPYJRvVmPpueExDATgYKeF6WnavP");
+    define("OAUTH_TOKEN", "");
+    define("OAUTH_SECRET", "");
     
     // stablish a connection to the Twitter API
     $sc = new Consumer(OAUTH_TOKEN, OAUTH_SECRET, Phirehose::METHOD_SAMPLE);
